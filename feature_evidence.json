@@ -1,0 +1,105 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-pregnant-women-tab-to-the-main-navigation-both-the-desktop-tab-bar-in-layout-tsx-and-the-mobile-bottomnavigation-tsx-alongside-the-existing-dashboard-growth-attendance-and-parent-tabs",
+      "featureTitle": "Add a 'Pregnant Women' tab to the main navigation (both the desktop tab bar in Layout.tsx and the mobile BottomNavigation.tsx), alongside the existing Dashboard, Growth, Attendance, and Parent tabs.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNavigation.tsx",
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-pregnantwomenpage-that-displays-1-a-summary-section-showing-total-registered-pregnant-women-count-by-trimester-1st-2nd-3rd-and-count-by-risk-level-normal-moderate-high-2-a-searchable-filterable-list-of-registered-pregnant-women-cards-3-a-form-to-register-a-new-pregnant-woman-or-record-a-new-visit",
+      "featureTitle": "Create a PregnantWomenPage that displays: (1) a summary section showing total registered pregnant women, count by trimester (1st/2nd/3rd), and count by risk level (normal/moderate/high); (2) a searchable, filterable list of registered pregnant women cards; (3) a form to register a new pregnant woman or record a new visit.",
+      "files": [
+        "frontend/src/components/AddVisitForm.tsx",
+        "frontend/src/components/PregnantWomanRegistrationForm.tsx",
+        "frontend/src/pages/PregnantWomenPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-pregnantwomancard-component-that-displays-woman-s-name-age-gestational-age-in-weeks-trimester-badge-risk-level-badge-color-coded-green-for-normal-yellow-for-moderate-red-for-high-edd-last-visit-date-and-an-expand-toggle-to-show-visit-history-and-latest-vitals-weight-bp-hemoglobin",
+      "featureTitle": "Create a PregnantWomanCard component that displays: woman's name, age, gestational age in weeks, trimester badge, risk level badge (color-coded: green for normal, yellow for moderate, red for high), EDD, last visit date, and an expand toggle to show visit history and latest vitals (weight, BP, hemoglobin).",
+      "files": [
+        "frontend/src/components/PregnantWomanCard.tsx",
+        "frontend/src/components/RiskLevelBadge.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-dummy-seed-data-for-at-least-5-pregnant-women-across-different-trimesters-and-risk-levels-in-a-new-utility-file-frontend-src-utils-pregnantwomendata-ts-following-the-same-pattern-as-dummydata-ts",
+      "featureTitle": "Add dummy/seed data for at least 5 pregnant women across different trimesters and risk levels in a new utility file (frontend/src/utils/pregnantWomenData.ts), following the same pattern as dummyData.ts.",
+      "files": [
+        "frontend/src/utils/pregnantWomenData.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-gestational-age-calculation-and-trimester-classification-utilities-in-frontend-src-utils-gestationalcalculations-ts-given-an-lmp-date-calculate-gestational-age-in-weeks-determine-trimester-1st-1-13-weeks-2nd-14-26-weeks-3rd-27-weeks-and-compute-edd-lmp-280-days",
+      "featureTitle": "Add gestational age calculation and trimester classification utilities in frontend/src/utils/gestationalCalculations.ts: given an LMP date, calculate gestational age in weeks, determine trimester (1st: 1–13 weeks, 2nd: 14–26 weeks, 3rd: 27+ weeks), and compute EDD (LMP + 280 days).",
+      "files": [
+        "frontend/src/utils/gestationalCalculations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add Pregnant Women Module",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Add 'Pregnant Women' tab to main navigation (desktop and mobile)",
+      "acceptanceCriteria": [
+        "A 'Pregnant Women' tab appears in both desktop header navigation and mobile bottom navigation",
+        "Tapping/clicking the tab navigates to the Pregnant Women page",
+        "Active state styling matches the existing tab styles"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add a 'Pregnant Women' tab to the desktop tab bar navigation alongside Dashboard, Growth, Attendance, and Parent tabs. Update the tab state management to include 'pregnant-women' as a valid tab value. Wire the tab click handler to set active tab to 'pregnant-women'. Apply active state styling (border and text color) when this tab is selected."
+        },
+        {
+          "path": "frontend/src/components/BottomNavigation.tsx",
+          "operation": "modify",
+          "description": "Add a 'Pregnant Women' tab button to the mobile bottom navigation bar alongside the existing four tabs. Use an appropriate icon (e.g., a heart or medical icon from lucide-react). Apply active state styling (top border and bold icon) when the tab is active. Wire the click handler to call onTabChange('pregnant-women')."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add 'pregnant-women' as a valid tab state option in the App component. Add a conditional render case that displays the PregnantWomenPage component when activeTab === 'pregnant-women'. Ensure the Layout component receives and handles the new tab value correctly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create PregnantWomenPage with summary, list, and registration form",
+      "acceptanceCriteria": [
+        "Summary cards display total count and breakdown by trimester and risk level",
+        "List shows all registered pregnant women with key details (name, EDD, trimester, risk level)",
+        "User can filter the list by trimester or risk level",
+        "Registration form accepts all required fields and submits to the backend",
+        "New visit recording form allows updating weight, BP, and hemoglobin for an existing record"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PregnantWomenPage.tsx",
+          "operation": "create",
+          "description": "Create the main Pregnant Women page component. Include three sections: (1) Summary section with cards showing total registered pregnant women, count by trimester (1st/2nd/3rd), and count by risk level (normal/moderate/high) using the same card pattern as DashboardSummaryCards; (2) Searchable and filterable list of PregnantWomanCard components with filter dropdowns for trimester and risk level; (3) A button to open a registration form dialog/modal. Use the authorization component to ensure only authenticated users can access this page. Fetch pregnancy records from the backend using getAllPregnancyRecords() and compute summary statistics. Use React Query for data fetching and caching."
+        },
+        {
+          "path": "frontend/src/components/PregnantWomanRegistrationForm.tsx",
+          "operation": "create",
+          "description": "Create a form component for registering a new pregnant woman. Include input fields for: name, age, husband name, address, phone number, and LMP date. Use the gestational calculation utilities to automatically compute gestational age, EDD, and trimester based on LMP. Include fields for initial weight, hemoglobin level, blood pressure, and risk level selection. Include a notes field for the initial visit record. On submit, call the backend addPregnancyRecord() method with all required fields. Use React Hook Form for form state management and validation. Display success/error feedback using toast notifications. Close the form dialog on successful submission and refetch the pregnancy records list."
+        },
+        {
+          "path": "frontend/src/components/AddVisitForm.tsx",
+          "operation": "create",
+          "description": "Create a form component for recording a new visit for an existing pregnant woman. Accept the woman's phone number as a prop to identify the record. Include input fields for: visit date, weight, blood pressure, hemoglobin level, and notes. On submit, call the backend addVisit() method with the phone number and new visit record. Use React Hook Form for validation. Display success/error feedback and refetch the pregnancy records on successful submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create PregnantWomanCard component with expandable visit history",
+      "acceptanceCriteria": [
+        "Card shows name, gestational age, trimester, risk level badge, and EDD in collapsed state",
+        "Risk level badge is color-coded using the existing status color utilities",
+        "Expanded state shows visit history and latest vitals",
+        "Visual style is consistent with ChildRecordCard"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PregnantWomanCard.tsx",
+          "operation": "create",
+          "description": "Create an expandable card component for displaying a pregnant woman's record. In collapsed state, show: name, age, gestational age in weeks, trimester badge (1st/2nd/3rd), risk level badge (color-coded: green for normal, yellow for moderate, red for high using the existing status color utilities), EDD, and last visit date. Include an expand/collapse toggle button. In expanded state, display: visit history (date, weight, BP, hemoglobin, notes) in a list or table format, and latest vitals (most recent weight, BP, hemoglobin). Include an 'Add Visit' button that opens the AddVisitForm. Follow the same visual pattern and styling as ChildRecordCard for consistency. Use Tailwind classes and OKLCH color tokens from the design system."
+        },
+        {
+          "path": "frontend/src/components/RiskLevelBadge.tsx",
+          "operation": "create",
+          "description": "Create a reusable risk level badge component that displays a color-coded label with a dot indicator, similar to NutritionalStatusBadge. Accept riskLevel ('normal' | 'moderate' | 'high') and optional size prop. Use status-green for normal, status-yellow for moderate, and status-red for high. Export helper functions for getting risk level colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add dummy/seed data for pregnant women",
+      "acceptanceCriteria": [
+        "At least 5 pregnant woman records are defined with varied trimesters and risk levels",
+        "Each record includes at least 2 visit history entries",
+        "TypeScript types are defined for PregnantWoman and PregnantWomanVisit"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/pregnantWomenData.ts",
+          "operation": "create",
+          "description": "Create a new utility file following the same pattern as dummyData.ts. Define TypeScript types for PregnantWoman (with fields: id, name, age, husbandName, address, phoneNumber, lmpDate, eddDate, gestationalAge, weight, hemoglobinLevel, bloodPressure, trimester, riskLevel, visitHistory) and PregnantWomanVisit (with fields: visitDate, weight, bloodPressure, hemoglobin, notes). Export an array of at least 5 dummy pregnant woman records with varied trimesters (1st, 2nd, 3rd) and risk levels (normal, moderate, high). Each record must include at least 2 visit history entries with realistic dates, vitals, and notes. Use consistent date formatting and realistic Indian names and addresses."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add gestational age calculation and trimester classification utilities",
+      "acceptanceCriteria": [
+        "Gestational age in weeks is correctly computed from LMP date",
+        "Trimester is correctly classified based on gestational age",
+        "EDD is correctly calculated as LMP + 280 days"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestationalCalculations.ts",
+          "operation": "modify",
+          "description": "Implement gestational calculation utilities. Add a calculateGestationalAge(lmpDate: Date): number function that computes gestational age in weeks from the LMP date to the current date. Add a determineTrimester(gestationalAge: number): 1 | 2 | 3 function that classifies trimester based on gestational age (1st: 1-13 weeks, 2nd: 14-26 weeks, 3rd: 27+ weeks). Add a calculateEDD(lmpDate: Date): Date function that computes the expected delivery date as LMP + 280 days. Export all functions with clear TypeScript types and JSDoc comments."
+        }
+      ]
+    }
+  ]
+}

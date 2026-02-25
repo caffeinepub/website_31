@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Early childhood development / community health app with modules for growth monitoring, attendance, parent engagement, and worker dashboard. Adding a pregnant women tracking module.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-add-a-pregnant-women-tab-to-the-main-navigation-both-the-desktop-tab-bar-in-layout-tsx-and-the-mobile-bottomnavigation-tsx-alongside-the-existing-dashboard-growth-attendance-and-parent-tabs",
+      "title": "Add a 'Pregnant Women' tab to the main navigation (both the desktop tab bar in Layout.tsx and the mobile BottomNavigation.tsx), alongside the existing Dashboard, Growth, Attendance, and Parent tabs.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-pregnantwomenpage-that-displays-1-a-summary-section-showing-total-registered-pregnant-women-count-by-trimester-1st-2nd-3rd-and-count-by-risk-level-normal-moderate-high-2-a-searchable-filterable-list-of-registered-pregnant-women-cards-3-a-form-to-register-a-new-pregnant-woman-or-record-a-new-visit",
+      "title": "Create a PregnantWomenPage that displays: (1) a summary section showing total registered pregnant women, count by trimester (1st/2nd/3rd), and count by risk level (normal/moderate/high); (2) a searchable, filterable list of registered pregnant women cards; (3) a form to register a new pregnant woman or record a new visit.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-pregnantwomancard-component-that-displays-woman-s-name-age-gestational-age-in-weeks-trimester-badge-risk-level-badge-color-coded-green-for-normal-yellow-for-moderate-red-for-high-edd-last-visit-date-and-an-expand-toggle-to-show-visit-history-and-latest-vitals-weight-bp-hemoglobin",
+      "title": "Create a PregnantWomanCard component that displays: woman's name, age, gestational age in weeks, trimester badge, risk level badge (color-coded: green for normal, yellow for moderate, red for high), EDD, last visit date, and an expand toggle to show visit history and latest vitals (weight, BP, hemoglobin).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-dummy-seed-data-for-at-least-5-pregnant-women-across-different-trimesters-and-risk-levels-in-a-new-utility-file-frontend-src-utils-pregnantwomendata-ts-following-the-same-pattern-as-dummydata-ts",
+      "title": "Add dummy/seed data for at least 5 pregnant women across different trimesters and risk levels in a new utility file (frontend/src/utils/pregnantWomenData.ts), following the same pattern as dummyData.ts.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-gestational-age-calculation-and-trimester-classification-utilities-in-frontend-src-utils-gestationalcalculations-ts-given-an-lmp-date-calculate-gestational-age-in-weeks-determine-trimester-1st-1-13-weeks-2nd-14-26-weeks-3rd-27-weeks-and-compute-edd-lmp-280-days",
+      "title": "Add gestational age calculation and trimester classification utilities in frontend/src/utils/gestationalCalculations.ts: given an LMP date, calculate gestational age in weeks, determine trimester (1st: 1–13 weeks, 2nd: 14–26 weeks, 3rd: 27+ weeks), and compute EDD (LMP + 280 days).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add a 'Pregnant Women' module for tracking and managing pregnant ladies",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add a 'Pregnant Women' data model to the backend with fields: name, age, husband name, address, phone number, last menstrual period (LMP) date, expected delivery date (EDD), gestational age (weeks), weight, hemoglobin level, blood pressure, trimester, risk level (normal/moderate/high), and visit history (array of dated records with weight, BP, hemoglobin, and notes).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Smart Anganwadi",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,134 @@
+{
+  "kind": "build_request",
+  "title": "Add Pregnant Women Module",
+  "projectName": "Smart Anganwadi",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Add a 'Pregnant Women' data model to the backend with fields: name, age, husband name, address, phone number, last menstrual period (LMP) date, expected delivery date (EDD), gestational age (weeks), weight, hemoglobin level, blood pressure, trimester, risk level (normal/moderate/high), and visit history (array of dated records with weight, BP, hemoglobin, and notes).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores and retrieves pregnant woman records with all specified fields",
+        "Visit history entries can be added to an existing record",
+        "Records can be queried by risk level and trimester"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add a 'Pregnant Women' tab to the main navigation (both the desktop tab bar in Layout.tsx and the mobile BottomNavigation.tsx), alongside the existing Dashboard, Growth, Attendance, and Parent tabs.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'Pregnant Women' tab appears in both desktop header navigation and mobile bottom navigation",
+        "Tapping/clicking the tab navigates to the Pregnant Women page",
+        "Active state styling matches the existing tab styles"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a PregnantWomenPage that displays: (1) a summary section showing total registered pregnant women, count by trimester (1st/2nd/3rd), and count by risk level (normal/moderate/high); (2) a searchable, filterable list of registered pregnant women cards; (3) a form to register a new pregnant woman or record a new visit.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Summary cards display total count and breakdown by trimester and risk level",
+        "List shows all registered pregnant women with key details (name, EDD, trimester, risk level)",
+        "User can filter the list by trimester or risk level",
+        "Registration form accepts all required fields and submits to the backend",
+        "New visit recording form allows updating weight, BP, and hemoglobin for an existing record"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a PregnantWomanCard component that displays: woman's name, age, gestational age in weeks, trimester badge, risk level badge (color-coded: green for normal, yellow for moderate, red for high), EDD, last visit date, and an expand toggle to show visit history and latest vitals (weight, BP, hemoglobin).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Card shows name, gestational age, trimester, risk level badge, and EDD in collapsed state",
+        "Risk level badge is color-coded using the existing status color utilities",
+        "Expanded state shows visit history and latest vitals",
+        "Visual style is consistent with ChildRecordCard"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add dummy/seed data for at least 5 pregnant women across different trimesters and risk levels in a new utility file (frontend/src/utils/pregnantWomenData.ts), following the same pattern as dummyData.ts.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 5 pregnant woman records are defined with varied trimesters and risk levels",
+        "Each record includes at least 2 visit history entries",
+        "TypeScript types are defined for PregnantWoman and PregnantWomanVisit"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add gestational age calculation and trimester classification utilities in frontend/src/utils/gestationalCalculations.ts: given an LMP date, calculate gestational age in weeks, determine trimester (1st: 1–13 weeks, 2nd: 14–26 weeks, 3rd: 27+ weeks), and compute EDD (LMP + 280 days).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add the Pregnant ladies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Gestational age in weeks is correctly computed from LMP date",
+        "Trimester is correctly classified based on gestational age",
+        "EDD is correctly calculated as LMP + 280 days"
+      ]
+    }
+  ],
+  "constraints": [
+    "Follow the existing visual design system (OKLCH color tokens, Tailwind classes, component patterns)",
+    "New navigation tab must not break existing tab routing in App.tsx",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui/"
+  ],
+  "nonGoals": [
+    "Real SMS or notification sending to pregnant women",
+    "Integration with external health databases or government APIs",
+    "Antenatal care scheduling or appointment booking",
+    "Postnatal tracking"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

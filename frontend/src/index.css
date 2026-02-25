@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+
+        /* Smart Anganwadi – Government-friendly palette */
+        --background: 0.97 0.008 100;       /* Off-white warm */
+        --foreground: 0.18 0.015 250;       /* Near-black */
+
+        --card: 1 0 0;
+        --card-foreground: 0.18 0.015 250;
+
+        --popover: 1 0 0;
+        --popover-foreground: 0.18 0.015 250;
+
+        --primary: 0.48 0.13 145;           /* Government green */
+        --primary-foreground: 1 0 0;
+
+        --secondary: 0.93 0.02 145;         /* Light green tint */
+        --secondary-foreground: 0.30 0.08 145;
+
+        --muted: 0.94 0.008 100;
+        --muted-foreground: 0.50 0.01 250;
+
+        --accent: 0.72 0.14 55;             /* Warm amber */
+        --accent-foreground: 0.18 0.015 250;
+
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 1 0 0;
+
+        --border: 0.88 0.01 250;
+        --input: 0.88 0.01 250;
+        --ring: 0.48 0.13 145;
+
+        /* Status colors */
+        --status-green: 0.60 0.16 145;
+        --status-green-bg: 0.94 0.06 145;
+        --status-yellow: 0.72 0.14 75;
+        --status-yellow-bg: 0.96 0.06 90;
+        --status-red: 0.55 0.20 25;
+        --status-red-bg: 0.96 0.06 25;
+
+        --chart-1: 0.55 0.16 145;
+        --chart-2: 0.72 0.14 75;
+        --chart-3: 0.55 0.20 25;
+        --chart-4: 0.60 0.12 220;
+        --chart-5: 0.65 0.10 300;
+    }
+
+    .dark {
+        --background: 0.14 0.015 250;
+        --foreground: 0.95 0.008 100;
+
+        --card: 0.18 0.015 250;
+        --card-foreground: 0.95 0.008 100;
+
+        --popover: 0.18 0.015 250;
+        --popover-foreground: 0.95 0.008 100;
+
+        --primary: 0.58 0.14 145;
+        --primary-foreground: 0.10 0.01 250;
+
+        --secondary: 0.25 0.04 145;
+        --secondary-foreground: 0.85 0.06 145;
+
+        --muted: 0.22 0.015 250;
+        --muted-foreground: 0.65 0.01 250;
+
+        --accent: 0.68 0.14 55;
+        --accent-foreground: 0.10 0.01 250;
+
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 1 0 0;
+
+        --border: 0.28 0.015 250;
+        --input: 0.28 0.015 250;
+        --ring: 0.58 0.14 145;
+
+        --status-green: 0.65 0.16 145;
+        --status-green-bg: 0.22 0.06 145;
+        --status-yellow: 0.75 0.14 75;
+        --status-yellow-bg: 0.22 0.06 90;
+        --status-red: 0.62 0.20 25;
+        --status-red-bg: 0.22 0.06 25;
+
+        --chart-1: 0.60 0.16 145;
+        --chart-2: 0.75 0.14 75;
+        --chart-3: 0.62 0.20 25;
+        --chart-4: 0.65 0.12 220;
+        --chart-5: 0.70 0.10 300;
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .status-green {
+        color: oklch(var(--status-green));
+        background-color: oklch(var(--status-green-bg));
+    }
+
+    .status-yellow {
+        color: oklch(var(--status-yellow));
+        background-color: oklch(var(--status-yellow-bg));
+    }
+
+    .status-red {
+        color: oklch(var(--status-red));
+        background-color: oklch(var(--status-red-bg));
+    }
+
+    .border-status-green {
+        border-color: oklch(var(--status-green));
+    }
+
+    .border-status-yellow {
+        border-color: oklch(var(--status-yellow));
+    }
+
+    .border-status-red {
+        border-color: oklch(var(--status-red));
+    }
+}
