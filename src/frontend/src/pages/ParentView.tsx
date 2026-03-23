@@ -6,7 +6,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Users } from "lucide-react";
 import { useState } from "react";
 import ChildSummaryCard from "../components/ChildSummaryCard";
 import NutritionTips from "../components/NutritionTips";
@@ -21,22 +20,10 @@ export default function ParentView() {
   const attendance = getAttendanceForChild(child.id);
 
   return (
-    <div className="space-y-4 animate-slide-up">
-      {/* Page Header */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-          <Users size={20} className="text-primary" />
-        </div>
-        <div>
-          <h2 className="font-heading font-bold text-lg">Parent Dashboard</h2>
-          <p className="text-xs text-muted-foreground">
-            Child health summary for parents
-          </p>
-        </div>
-      </div>
+    <div className="space-y-4">
+      <h2 className="font-heading font-bold text-lg">Parent Dashboard</h2>
 
-      {/* Child Selector */}
-      <Card className="shadow-card">
+      <Card>
         <CardContent className="p-4">
           <label
             htmlFor="child-select"
@@ -59,10 +46,8 @@ export default function ParentView() {
         </CardContent>
       </Card>
 
-      {/* Child Summary */}
       <ChildSummaryCard child={child} attendance={attendance} />
 
-      {/* Nutrition Tips */}
       <div>
         <h3 className="font-heading font-semibold text-sm mb-2 text-muted-foreground uppercase tracking-wide">
           Nutrition Guidance
@@ -70,7 +55,6 @@ export default function ParentView() {
         <NutritionTips status={child.status} />
       </div>
 
-      {/* SMS Alert */}
       <div>
         <h3 className="font-heading font-semibold text-sm mb-2 text-muted-foreground uppercase tracking-wide">
           Parent Communication
@@ -82,7 +66,6 @@ export default function ParentView() {
         />
       </div>
 
-      {/* ICDS Info */}
       <div className="bg-secondary/40 border border-primary/20 rounded-lg p-3">
         <p className="text-xs font-semibold text-primary mb-1">
           ICDS Programme Information

@@ -89,19 +89,11 @@ export default function PregnantWomenPage() {
   return (
     <div className="space-y-4 animate-slide-up">
       {/* Page Header */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center">
-          <Heart size={20} className="text-pink-500" />
-        </div>
-        <div>
-          <h2 className="font-heading font-bold text-lg">Pregnant Women</h2>
-          <p className="text-xs text-muted-foreground">
-            ANC monitoring & maternal health tracking
-          </p>
-        </div>
+      <div className="flex items-center justify-between">
+        <h2 className="font-heading font-bold text-lg">Pregnant Women</h2>
         <Button
           size="sm"
-          className="ml-auto gap-1.5"
+          className="gap-1.5"
           onClick={() => setRegisterOpen(true)}
         >
           <PlusCircle size={14} />

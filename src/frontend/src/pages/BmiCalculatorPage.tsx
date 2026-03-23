@@ -861,30 +861,11 @@ export default function BmiCalculatorPage() {
 
   return (
     <div className="space-y-5 pb-4">
-      {/* Page Header */}
-      <div className="flex items-center gap-3 pt-2">
-        <div className="p-2 rounded-xl bg-primary/10">
-          <Calculator size={22} className="text-primary" />
-        </div>
-        <div>
-          <h2 className="font-heading font-bold text-lg text-foreground leading-tight">
-            BMI Calculator
-          </h2>
-          <p className="text-xs text-muted-foreground">
-            Advanced health metrics & analysis
-          </p>
-        </div>
-      </div>
+      <h2 className="font-heading font-bold text-lg">BMI Calculator</h2>
 
       {/* Input Form Card */}
-      <Card className="border border-border shadow-card">
-        <CardHeader className="pb-3">
-          <div className="flex items-center gap-2">
-            <User size={16} className="text-primary" />
-            <CardTitle className="text-sm font-bold">Your Details</CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
+      <Card className="border border-border">
+        <CardContent className="pt-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name & Age row */}
             <div className="grid grid-cols-2 gap-3">

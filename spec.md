@@ -1,44 +1,29 @@
-# Smart Anganwadi – Advanced BMI Calculator Upgrade
+# Smart Anganwadi
 
 ## Current State
-The app is a Smart Anganwadi platform with modules for child growth monitoring, attendance, parent view, worker dashboard, and pregnant women tracking. The app has a basic BMI calculation embedded in the children/adult assessment flow but lacks advanced BMI-specific analytics. The Motoko backend stores pregnancy records and child growth data but has no BMI history table.
+A multi-module ICDS digital platform with 6 tabs: Dashboard, Growth Monitoring, Attendance, Parent View, Pregnant Women, BMI Calculator. The app is feature-rich but visually complex with many components, cards, and dense information.
 
 ## Requested Changes (Diff)
 
 ### Add
-- New `BMI Calculator` tab in navigation (alongside existing tabs)
-- New `BmiCalculatorPage` with a full dashboard layout
-- Backend: `BmiRecord` type with fields: name, age, gender, height, weight, bmi, timestamp
-- Backend: `saveBmiRecord()` – store a new BMI entry
-- Backend: `getBmiHistory()` – retrieve all BMI records for trend chart
-- Frontend: BMI input form (name, age, gender, height, weight, activity level)
-- BMI Trend Chart: line chart (x=date, y=BMI) using recharts/shadcn chart
-- Ideal Weight Suggestion card: min/max healthy weight, difference from ideal
-- Body Fat Percentage card: formula-based estimate (men/women), category label
-- Calorie Needs card: BMR via Mifflin-St Jeor × activity multiplier, daily kcal
-- BMI History Log: table of past records with name, age, gender, height, weight, BMI, date; comparison delta vs previous
-- Risk Alert banner: color-coded warning per BMI category (Underweight/Normal/Overweight/Obese), red highlight for critical
-- Progress bar showing BMI on scale 10–40
+- Nothing new
 
 ### Modify
-- `App.tsx`: add `"bmi-calculator"` to `AppTab` union and route to new page
-- `Layout.tsx`: add BMI Calculator nav item with calculator icon
-- `BottomNavigation.tsx`: add BMI Calculator icon
+- Simplify overall UI: reduce visual clutter, improve whitespace, cleaner card styles
+- Simplify navigation: consolidate labels, reduce visual weight of nav
+- Simplify each page: remove redundant headers/descriptions, streamline layouts
+- Simplify WorkerDashboard: cleaner stats cards, less decorative elements
+- Simplify BmiCalculatorPage: cleaner form layout, less nested visual complexity
+- Simplify all pages: consistent minimal style, easier to read at a glance
 
 ### Remove
-- Nothing removed from existing modules
+- Excessive decorative elements and icon containers
+- Redundant subtitles and descriptions on page headers
+- Overly nested card structures where a simpler layout suffices
 
 ## Implementation Plan
-1. Update Motoko backend: add `BmiRecord` type, `saveBmiRecord`, `getBmiHistory` functions
-2. Create `BmiCalculatorPage.tsx` with:
-   - Input form (name, age, gender, height, weight, activity level)
-   - On submit: compute BMI, body fat %, ideal weight range, BMR/calorie needs; save to backend
-   - Risk Alert banner (color-coded)
-   - BMI progress bar on 10–40 scale
-   - Ideal Weight Suggestion card
-   - Body Fat Percentage card
-   - Calorie Needs card
-   - BMI Trend Chart (line chart from history)
-   - BMI History Log table with comparison delta
-3. Wire backend calls (saveBmiRecord, getBmiHistory) using backend.ts bindings
-4. Update App.tsx, Layout.tsx, BottomNavigation.tsx to include new tab
+1. Simplify Layout.tsx - cleaner header, simpler nav
+2. Simplify BottomNavigation.tsx - cleaner mobile nav
+3. Simplify WorkerDashboard.tsx - remove excess decoration
+4. Simplify BmiCalculatorPage.tsx - cleaner form and results
+5. Review and simplify other pages for consistency

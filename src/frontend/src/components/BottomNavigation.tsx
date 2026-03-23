@@ -27,7 +27,7 @@ export default function BottomNavigation({
   onTabChange,
 }: BottomNavigationProps) {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-soft">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border">
       <div className="flex items-stretch">
         {navItems.map(({ tab, label, Icon }) => (
           <button
@@ -36,9 +36,7 @@ export default function BottomNavigation({
             onClick={() => onTabChange(tab)}
             className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors min-h-[56px] ${
               activeTab === tab
-                ? tab === "pregnant-women"
-                  ? "text-pink-500 border-t-2 border-pink-400 bg-pink-50/40"
-                  : "text-primary border-t-2 border-primary bg-secondary/40"
+                ? "bg-secondary text-primary"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >

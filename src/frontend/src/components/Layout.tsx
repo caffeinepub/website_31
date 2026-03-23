@@ -37,45 +37,32 @@ export default function Layout({
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-primary shadow-card">
-        <div className="container mx-auto px-4 py-3 flex items-center gap-3">
-          <img
-            src="/assets/generated/anganwadi-hero.dim_800x400.png"
-            alt="Smart Anganwadi"
-            className="h-9 w-auto rounded object-cover"
-            style={{ maxWidth: "48px" }}
-          />
-          <div>
-            <h1 className="text-primary-foreground font-heading font-bold text-base leading-tight">
-              Smart Anganwadi
-            </h1>
-            <p className="text-primary-foreground/80 text-xs leading-tight">
-              ICDS Digital Platform
-            </p>
-          </div>
-          <div className="ml-auto">
-            <span className="bg-primary-foreground/20 text-primary-foreground text-xs px-2 py-1 rounded-full font-medium">
-              AWC-042
-            </span>
-          </div>
+      <header className="sticky top-0 z-40 bg-primary">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <h1 className="text-primary-foreground font-heading font-bold text-base">
+            Smart Anganwadi
+          </h1>
+          <span className="bg-primary-foreground/20 text-primary-foreground text-xs px-2 py-1 rounded-full font-medium">
+            AWC-042
+          </span>
         </div>
       </header>
 
       {/* Desktop Tab Navigation */}
-      <nav className="hidden md:flex bg-card border-b border-border shadow-xs sticky top-[60px] z-30">
+      <nav className="hidden md:flex bg-card border-b border-border sticky top-[48px] z-30">
         <div className="container mx-auto px-4 flex gap-1 py-1 overflow-x-auto">
           {navItems.map((item) => (
             <button
               type="button"
               key={item.tab}
               onClick={() => onTabChange(item.tab)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
                 activeTab === item.tab
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               }`}
             >
-              <item.Icon size={16} />
+              <item.Icon size={15} />
               {item.label}
             </button>
           ))}
